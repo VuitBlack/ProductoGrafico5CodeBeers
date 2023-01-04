@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" style="-fx-background-color: C8EDFF;             " xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prueba_2fx.HelloController">
+   <children>
+      <Label layoutX="201.0" layoutY="7.0" text="OnlineStore">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="articuloArrow" fitHeight="26.0" fitWidth="26.0" layoutX="52.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/left-arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="clienteArrow" fitHeight="26.0" fitWidth="26.0" layoutX="52.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/left-arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pedidoArrow" fitHeight="26.0" fitWidth="26.0" layoutX="53.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/left-arrow.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="363.0" layoutY="376.0" text="By CodeBeers" />
+      <VBox layoutX="6.0" prefHeight="400.0" prefWidth="63.0">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="4.0" prefWidth="4.0" visible="false" />
+            <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#onMenuButtonClick" prefHeight="17.0" prefWidth="62.0" text="MENU" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Separator orientation="VERTICAL" prefHeight="46.0" prefWidth="6.0" visible="false" />
+            <ImageView fx:id="articulosImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#onArticuloButtonClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/articulos.png" />
+               </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="45.0" prefWidth="12.0" visible="false" />
+            <ImageView fx:id="clientesImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#onClienteButtonClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/client.png" />
+               </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="45.0" prefWidth="5.0" visible="false" />
+            <ImageView fx:id="pedidosImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#onPedidoButtonClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/pedidos.png" />
+               </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" visible="false" />
+            <ImageView fx:id="exitImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#onExitButtonClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/salida.png" />
+               </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="46.0" prefWidth="3.0" visible="false" />
+         </children>
+      </VBox>
+      <AnchorPane fx:id="gestionArticulosScreen" layoutX="79.0" prefHeight="400.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="90.0" layoutY="35.0" text="GESTIÓN ARTÍCULOS">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="anadirArticuloButton" layoutX="134.0" layoutY="125.0" mnemonicParsing="false" onMouseClicked="#onAnadirArticuloClick" text="Añadir Artículos" />
+            <Button fx:id="listarArticuloButton" layoutX="134.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#onListarArticuloClick" text="Listar Artículos" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="gestionClientesScreen" layoutX="79.0" prefHeight="400.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="98.0" layoutY="37.0" text="GESTIÓN CLIENTES">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="anadirCliButton" layoutX="98.0" layoutY="111.0" mnemonicParsing="false" onMouseClicked="#onAddCliClick" text="Añadir Cliente" />
+            <Button fx:id="listarCliButtom" layoutX="100.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#onListCliClick" text="Listar Clientes" />
+            <Button fx:id="listarCliEstButton" layoutX="100.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#onListEstClick" text="Listar Clientes Estándar" />
+            <Button fx:id="listarCliPremButton" layoutX="98.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#onListPremClick" text="Listar Clientes Premium" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="gestionPedidosScreen" layoutX="79.0" layoutY="-1.0" prefHeight="400.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="90.0" layoutY="35.0" text="GESTIÓN PEDIDOS">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="anadirPedidoButton" layoutX="90.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#onAddPedClick" text="Añadir Pedido" />
+            <Button fx:id="eliminarPedidoButton" layoutX="90.0" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#onDeletePedClick" text="Eliminar Pedido" />
+            <Button fx:id="showPedPendEnvioButton" layoutX="90.0" layoutY="200.0" mnemonicParsing="false" onMouseClicked="#onListPPEnvClick" text="Listar Pedidos Pendientes Envío" />
+            <Button fx:id="showPedEnviadoButton" layoutX="90.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#onListPedEnvClic" text="Listar Pedidos Enviados" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addArticuloScreen" layoutX="79.0" layoutY="35.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="110.0" layoutY="3.0" text="AÑADIR ARTÍCULO">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="65.0" text="ID Artículo:" />
+            <Label layoutX="47.0" layoutY="96.0" text="Descripción:" />
+            <Label layoutX="47.0" layoutY="120.0" prefHeight="39.0" prefWidth="104.0" text="Tiempo de preparación (min):" wrapText="true" />
+            <Label layoutX="47.0" layoutY="169.0" text="Gastos de envío:" />
+            <Label layoutX="47.0" layoutY="197.0" text="PVP:" />
+            <TextField fx:id="idArtTextField" layoutX="151.0" layoutY="61.0" prefHeight="25.0" prefWidth="181.0" promptText="ID Artículo" />
+            <TextField fx:id="descripcionTextField" layoutX="151.0" layoutY="92.0" prefHeight="25.0" prefWidth="181.0" promptText="Descripción del Artículo" />
+            <TextField fx:id="timePrepArticuloTextField" layoutX="151.0" layoutY="134.0" prefHeight="25.0" prefWidth="181.0" promptText="Tiempo de preparacion en min" />
+            <TextField fx:id="gastoEnvioArtTextField" layoutX="151.0" layoutY="165.0" prefHeight="25.0" prefWidth="181.0" promptText="Gastos de envío " />
+            <TextField fx:id="pvpArtTextField" layoutX="151.0" layoutY="193.0" prefHeight="25.0" prefWidth="181.0" promptText="PVP del artículo" />
+            <Button layoutX="151.0" layoutY="233.0" mnemonicParsing="false" text="GUARDAR  ARTÍCULO" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="listarArticulosScreen" layoutX="79.0" layoutY="37.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="97.0" layoutY="3.0" text="LISTAR ARTÍCULOS">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="14.0" layoutY="26.0" prefHeight="304.0" prefWidth="345.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addClienteScreen" layoutX="80.0" layoutY="38.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="110.0" layoutY="3.0" text="AÑADIR CLIENTE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="65.0" text="NIF Cliente:" />
+            <Label layoutX="47.0" layoutY="98.0" prefHeight="17.0" prefWidth="102.0" text="Nombre:" />
+            <Label layoutX="47.0" layoutY="128.0" prefHeight="26.0" prefWidth="104.0" text="Domicilio:" />
+            <Label layoutX="47.0" layoutY="164.0" prefHeight="17.0" prefWidth="102.0" text="Email:" />
+            <Label layoutX="47.0" layoutY="197.0" prefHeight="17.0" prefWidth="95.0" text="Tipo Cliente:" />
+            <TextField fx:id="NIFclienteTextField" layoutX="151.0" layoutY="61.0" prefHeight="25.0" prefWidth="181.0" promptText="NIF del cliente" />
+            <TextField fx:id="NombreCliTextField" layoutX="151.0" layoutY="94.0" prefHeight="25.0" prefWidth="181.0" promptText="Nombre del cliente" />
+            <TextField fx:id="domicilioCliTextField" layoutX="151.0" layoutY="128.0" prefHeight="25.0" prefWidth="181.0" promptText="Domicilio del cliente" />
+            <TextField fx:id="emailCliTextField" layoutX="151.0" layoutY="162.0" prefHeight="25.0" prefWidth="181.0" promptText="Email del cliente" />
+            <TextField fx:id="tipoCliTextField" layoutX="151.0" layoutY="193.0" prefHeight="25.0" prefWidth="181.0" promptText="Tipo: Premium / Estandar" />
+            <Button layoutX="151.0" layoutY="233.0" mnemonicParsing="false" text="GUARDAR  CLIENTE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="listarCliScreen" layoutX="79.0" layoutY="37.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="97.0" layoutY="3.0" text="LISTAR CLIENTES">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="14.0" layoutY="26.0" prefHeight="304.0" prefWidth="345.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="listarCliEstScreen" layoutX="79.0" layoutY="38.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="70.0" layoutY="3.0" text="LISTAR CLIENTES ESTÁNDAR">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="14.0" layoutY="26.0" prefHeight="304.0" prefWidth="345.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="listarCliPremScreen" layoutX="79.0" layoutY="38.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="70.0" layoutY="3.0" text="LISTAR CLIENTES PREMIUM">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="14.0" layoutY="26.0" prefHeight="304.0" prefWidth="345.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addPedidoScreen" layoutX="79.0" layoutY="37.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="118.0" layoutY="3.0" text="AÑADIR PEDIDO">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="65.0" prefHeight="17.0" prefWidth="104.0" text="NIF Cliente:" />
+            <Label layoutX="47.0" layoutY="96.0" prefHeight="17.0" prefWidth="104.0" text="ID Articulo:" />
+            <Label layoutX="47.0" layoutY="130.0" prefHeight="18.0" prefWidth="104.0" text="Cantidad:" />
+            <TextField fx:id="NIFcliPedTextField" layoutX="151.0" layoutY="61.0" prefHeight="25.0" prefWidth="181.0" promptText="NIF del Cliente" />
+            <TextField fx:id="idArtPedTextField" layoutX="151.0" layoutY="92.0" prefHeight="25.0" prefWidth="181.0" promptText="ID del Artículo" />
+            <TextField fx:id="cantidadArtPedTextField" layoutX="151.0" layoutY="126.0" prefHeight="25.0" prefWidth="181.0" promptText="Cantidad Artículos" />
+            <Button fx:id="saveAddPed" layoutX="151.0" layoutY="233.0" mnemonicParsing="false" text="GUARDAR  PEDIDO" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="deletePedidoScreen" layoutX="79.0" layoutY="37.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="118.0" layoutY="3.0" text="ELIMINAR PEDIDO">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="65.0" prefHeight="17.0" prefWidth="104.0" text="ID Pedido:" />
+            <TextField fx:id="NIFcliPedTextField1" layoutX="151.0" layoutY="61.0" prefHeight="25.0" prefWidth="181.0" promptText="ID del pedido a eliminar" />
+            <Button fx:id="saveAddPed1" layoutX="151.0" layoutY="233.0" mnemonicParsing="false" text="ELIMINAR  PEDIDO" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="listarPedPendEnvScreen" layoutX="80.0" layoutY="37.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="90.0" prefHeight="50.0" prefWidth="192.0" text="LISTAR PEDIDOS PENDIENTES DE ENVÍO" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="57.0" prefHeight="17.0" prefWidth="104.0" text="NIF Cliente:" />
+            <TextField fx:id="NIFcliPPEnvTextField" layoutX="158.0" layoutY="53.0" prefHeight="25.0" prefWidth="181.0" promptText="Dejar en blanco para todos" />
+            <ScrollPane layoutX="14.0" layoutY="94.0" prefHeight="236.0" prefWidth="345.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="listarPedEnvScreen" layoutX="79.0" layoutY="37.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+         <children>
+            <Label layoutX="90.0" prefHeight="50.0" prefWidth="192.0" text="LISTAR PEDIDOS ENVIADOS" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="57.0" prefHeight="17.0" prefWidth="104.0" text="NIF Cliente:" />
+            <TextField fx:id="NIFcliPEnvTextField" layoutX="158.0" layoutY="53.0" prefHeight="25.0" prefWidth="181.0" promptText="Dejar en blanco para todos" />
+            <ScrollPane layoutX="14.0" layoutY="94.0" prefHeight="236.0" prefWidth="345.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
