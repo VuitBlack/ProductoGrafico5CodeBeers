@@ -32,141 +32,105 @@ public class HelloController {
     private AnchorPane listarCliEstScreen;
     @FXML
     private AnchorPane listarCliPremScreen;
+    @FXML
+    private AnchorPane addPedidoScreen;
+    @FXML
+    private AnchorPane deletePedidoScreen;
+    @FXML
+    private AnchorPane listarPedPendEnvScreen;
+    @FXML
+    private AnchorPane listarPedEnvScreen;
+
 
     public void onArticuloButtonClick(MouseEvent event) {
+        primaryMenuScreen();
         gestionArticulosScreen.setVisible(true);
         articuloArrow.setVisible(true);
-        addArticuloScreen.setVisible(false);
-        listarArticulosScreen.setVisible(false);
-        gestionClientesScreen.setVisible(false);
-        clienteArrow.setVisible(false);
-        addClienteScreen.setVisible(false);
-        listarCliScreen.setVisible(false);
-        listarCliEstScreen.setVisible(false);
-        listarCliPremScreen.setVisible(false);
-        gestionPedidosScreen.setVisible(false);
-        pedidoArrow.setVisible(false);
-
     }
     public void onClienteButtonClick(MouseEvent event) {
+        primaryMenuScreen();
         gestionClientesScreen.setVisible(true);
         clienteArrow.setVisible(true);
-        addClienteScreen.setVisible(false);
-        listarCliScreen.setVisible(false);
-        listarCliEstScreen.setVisible(false);
-        listarCliPremScreen.setVisible(false);
-        gestionArticulosScreen.setVisible(false);
-        articuloArrow.setVisible(false);
-        addArticuloScreen.setVisible(false);
-        listarArticulosScreen.setVisible(false);
-        gestionPedidosScreen.setVisible(false);
-        pedidoArrow.setVisible(false);
     }
-
     public void onPedidoButtonClick(MouseEvent event) {
+        primaryMenuScreen();
         gestionPedidosScreen.setVisible(true);
         pedidoArrow.setVisible(true);
-
-        gestionArticulosScreen.setVisible(false);
-        articuloArrow.setVisible(false);
-        addArticuloScreen.setVisible(false);
-        listarArticulosScreen.setVisible(false);
-        gestionClientesScreen.setVisible(false);
-        clienteArrow.setVisible(false);
-        addClienteScreen.setVisible(false);
-        listarCliScreen.setVisible(false);
-        listarCliEstScreen.setVisible(false);
-        listarCliPremScreen.setVisible(false);
     }
-
     public void onExitButtonClick(MouseEvent event) {
         Platform.exit();
         System.exit(0);
     }
-
+    public void onMenuButtonClick(MouseEvent event){
+        primaryMenuScreen();
+    }
     public void onAnadirArticuloClick(MouseEvent event) {
+        primaryMenuScreen();
         addArticuloScreen.setVisible(true);
         articuloArrow.setVisible(true);
-        gestionArticulosScreen.setVisible(false);
-        gestionClientesScreen.setVisible(false);
-        addClienteScreen.setVisible(false);
-        listarCliScreen.setVisible(false);
-        listarCliEstScreen.setVisible(false);
-        listarCliPremScreen.setVisible(false);
-        clienteArrow.setVisible(false);
-        gestionPedidosScreen.setVisible(false);
-        pedidoArrow.setVisible(false);
-
     }
     public void onListarArticuloClick(MouseEvent event) {
+        primaryMenuScreen();
         listarArticulosScreen.setVisible(true);
         articuloArrow.setVisible(true);
-        gestionArticulosScreen.setVisible(false);
-        addArticuloScreen.setVisible(false);
-        gestionClientesScreen.setVisible(false);
-        clienteArrow.setVisible(false);
-        gestionPedidosScreen.setVisible(false);
-        pedidoArrow.setVisible(false);
-        addClienteScreen.setVisible(false);
-        listarCliScreen.setVisible(false);
-        listarCliEstScreen.setVisible(false);
-        listarCliPremScreen.setVisible(false);
     }
     public void onAddCliClick(MouseEvent event) {
+        primaryMenuScreen();
         addClienteScreen.setVisible(true);
         clienteArrow.setVisible(true);
-        gestionClientesScreen.setVisible(false);
-        listarCliScreen.setVisible(false);
-        listarCliEstScreen.setVisible(false);
-        listarCliPremScreen.setVisible(false);
-        gestionArticulosScreen.setVisible(false);
-        articuloArrow.setVisible(false);
-        addArticuloScreen.setVisible(false);
-        listarArticulosScreen.setVisible(false);
-        gestionPedidosScreen.setVisible(false);
-        pedidoArrow.setVisible(false);
     }
     public void onListCliClick(MouseEvent event) {
+        primaryMenuScreen();
         listarCliScreen.setVisible(true);
         clienteArrow.setVisible(true);
-        addClienteScreen.setVisible(false);
-        gestionClientesScreen.setVisible(false);
-        listarCliEstScreen.setVisible(false);
-        listarCliPremScreen.setVisible(false);
-        gestionArticulosScreen.setVisible(false);
-        articuloArrow.setVisible(false);
-        addArticuloScreen.setVisible(false);
-        listarArticulosScreen.setVisible(false);
-        gestionPedidosScreen.setVisible(false);
-        pedidoArrow.setVisible(false);
     }
     public void onListEstClick(MouseEvent event) {
+        primaryMenuScreen();
         listarCliEstScreen.setVisible(true);
         clienteArrow.setVisible(true);
-        addClienteScreen.setVisible(false);
-        gestionClientesScreen.setVisible(false);
-        listarCliScreen.setVisible(false);
-        listarCliPremScreen.setVisible(false);
-        gestionArticulosScreen.setVisible(false);
-        articuloArrow.setVisible(false);
-        addArticuloScreen.setVisible(false);
-        listarArticulosScreen.setVisible(false);
-        gestionPedidosScreen.setVisible(false);
-        pedidoArrow.setVisible(false);
-
     }
     public void onListPremClick(MouseEvent event) {
+        primaryMenuScreen();
         listarCliPremScreen.setVisible(true);
         clienteArrow.setVisible(true);
-        addClienteScreen.setVisible(false);
-        gestionClientesScreen.setVisible(false);
-        listarCliScreen.setVisible(false);
-        listarCliEstScreen.setVisible(false);
+    }
+    public void onAddPedClick(MouseEvent event){
+        primaryMenuScreen();
+        addPedidoScreen.setVisible(true);
+        pedidoArrow.setVisible(true);
+    }
+    public void onDeletePedClick(MouseEvent event){
+        primaryMenuScreen();
+        deletePedidoScreen.setVisible(true);
+        pedidoArrow.setVisible(true);
+    }
+    public void onListPPEnvClick(MouseEvent event){
+        primaryMenuScreen();
+        listarPedPendEnvScreen.setVisible(true);
+        pedidoArrow.setVisible(true);
+    }
+    public void onListPedEnvClic(MouseEvent event){
+        primaryMenuScreen();
+        listarPedEnvScreen.setVisible(true);
+        pedidoArrow.setVisible(true);
+    }
+
+    public void primaryMenuScreen(){
         gestionArticulosScreen.setVisible(false);
         articuloArrow.setVisible(false);
         addArticuloScreen.setVisible(false);
         listarArticulosScreen.setVisible(false);
+        gestionClientesScreen.setVisible(false);
+        clienteArrow.setVisible(false);
+        addClienteScreen.setVisible(false);
+        listarCliScreen.setVisible(false);
+        listarCliEstScreen.setVisible(false);
+        listarCliPremScreen.setVisible(false);
         gestionPedidosScreen.setVisible(false);
         pedidoArrow.setVisible(false);
+        addPedidoScreen.setVisible(false);
+        deletePedidoScreen.setVisible(false);
+        listarPedPendEnvScreen.setVisible(false);
+        listarPedEnvScreen.setVisible(false);
     }
 }
