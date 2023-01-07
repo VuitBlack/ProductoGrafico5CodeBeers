@@ -252,6 +252,22 @@ public class HelloController {
         }
     }
 
+    private void mostrarCosas(ArrayList<HashMap<String, String>> datos, ScrollPane panel){
+        VBox visualizador = new VBox();
+
+        for (HashMap<String, String> elemento : datos) {
+            Set<String> campos = elemento.keySet();
+            Text texto = new Text("===============================\n");
+            for (String campo : campos) {
+                String valor = elemento.get(campo);
+                String nuevaLinea = new String(campo + ": " + valor + "\n");
+                texto.setText(texto.getText() + nuevaLinea);
+            }
+            texto.setText(texto.getText() + "===============================");
+            visualizador.getChildren().add(texto);
+        }
+        panel.setContent(visualizador);
+    }
 
 
     /***********************************************************************
@@ -340,21 +356,6 @@ public class HelloController {
         return datos.compruebaExistenciaArticulo(id);
     }
 
-    private void mostrarCosas(ArrayList<HashMap<String, String>> datos, ScrollPane panel){
-        VBox visualizador = new VBox();
 
-        for (HashMap<String, String> elemento : datos) {
-            Set<String> campos = elemento.keySet();
-            Text texto = new Text("===============================\n");
-            for (String campo : campos) {
-                String valor = elemento.get(campo);
-                String nuevaLinea = new String(campo + ": " + valor + "\n");
-                texto.setText(texto.getText() + nuevaLinea);
-            }
-            texto.setText(texto.getText() + "===============================");
-            visualizador.getChildren().add(texto);
-        }
-        panel.setContent(visualizador);
-    }
 
 }
