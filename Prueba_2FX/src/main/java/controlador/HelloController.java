@@ -1,11 +1,18 @@
 package controlador;
 
+import exceptions.ElementoNoExiste;
+import exceptions.OpcionNoValida;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import modelo.*;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class HelloController {
     @FXML
@@ -142,11 +149,9 @@ public class HelloController {
     /***********************************************************************
     **  Antiguo Controlador
     ************************************************************************/
-    /*private Datos datos;
+    private Datos datos;
 
-    public Controlador() {
-        datos = new Datos();
-    }
+
 
     public void addCliente(String nombre, String domicilio, String nif, String email, String tipoCliente) throws OpcionNoValida {
         Cliente cliente;
@@ -196,7 +201,7 @@ public class HelloController {
         return datosArticulos;
     }
 
-    public void addPedido(String nif, String id, int unidades, LocalDateTime fechaHora) throws ElementoNoExiste{
+    public void addPedido(String nif, String id, int unidades, LocalDateTime fechaHora) throws ElementoNoExiste {
         Cliente cliente = datos.getClienteByNif(nif);
         Articulo articulo = datos.getArticuloById(id);
         Pedido pedido = new Pedido(cliente, articulo, unidades, fechaHora);
@@ -225,5 +230,5 @@ public class HelloController {
 
     public boolean articuloExiste(String id) {
         return datos.compruebaExistenciaArticulo(id);
-    }*/
+    }
 }
