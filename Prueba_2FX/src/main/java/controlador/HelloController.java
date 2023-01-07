@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import modelo.*;
@@ -106,6 +107,14 @@ public class HelloController {
     private TextField cantidadArtPedTextField;
     @FXML
     private TextField NIFcliPedTextField1;
+    @FXML
+    private TextField NIFcliPPEnvTextField;
+    @FXML
+    private ScrollPane listadoPedidosPend;
+    @FXML
+    private ScrollPane listadoPedidosEnv;
+    @FXML
+    private TextField NIFcliPEnvTextField;
 
     public void onArticuloButtonClick(MouseEvent event) {
         primaryMenuScreen();
@@ -206,6 +215,7 @@ public class HelloController {
         listarPedPendEnvScreen.setVisible(false);
         listarPedEnvScreen.setVisible(false);
         resetTexts();
+        resetPanes();
     }
     public void resetTexts(){
         idArtTextField.setText("");
@@ -222,6 +232,17 @@ public class HelloController {
         idArtPedTextField.setText("");
         cantidadArtPedTextField.setText("");
         NIFcliPedTextField1.setText("");
+        NIFcliPPEnvTextField.setText("");
+        NIFcliPEnvTextField.setText("");
+    }
+
+    protected void resetPanes(){
+        listadoArticulos.setContent(new Pane());
+        listadoPedidosPend.setContent(new Pane());
+        listadoClientes.setContent(new Pane());
+        listadoPedidosEnv.setContent(new Pane());
+        listadoClientesEst.setContent(new Pane());
+        listadoClientesPremium.setContent(new Pane());
     }
     public void AddArticuloDef(MouseEvent mouseEvent) {
         if(articuloExiste(idArtTextField.getText()) || idArtTextField.getText().equals("") ||
@@ -298,6 +319,15 @@ public class HelloController {
         catch (OnlineStoreException e){
             alerta("Advertencia", "El pedido no se ha eliminado", e.getError());
         }
+    }
+
+    public void mostrarPedPendientes(){
+        ArrayList<HashMap<String, String>> datosPedidos = getPedidos(NIFcliPPEnvTextField.getText(), false);
+        mostrarCosas(datosPedidos, listadoPedidosPend);
+    }
+    public void mostrarPedEnv(){
+        ArrayList<HashMap<String, String>> datosPedidos = getPedidos(NIFcliPEnvTextField.getText(), true);
+        mostrarCosas(datosPedidos, listadoPedidosEnv);
     }
 
     private void mostrarCosas(ArrayList<HashMap<String, String>> datos, ScrollPane panel){
@@ -387,6 +417,8 @@ public class HelloController {
         Pedido pedido = new Pedido(cliente, articulo, unidades, fechaHora);
         datos.addPedido(pedido);
     }
+
+
 
     public ArrayList getPedidos(String filtro, boolean enviado) {
 
