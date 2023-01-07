@@ -62,7 +62,7 @@
             <Separator orientation="VERTICAL" prefHeight="46.0" prefWidth="3.0" visible="false" />
          </children>
       </VBox>
-      <AnchorPane fx:id="gestionArticulosScreen" layoutX="79.0" prefHeight="400.0" prefWidth="371.0">
+      <AnchorPane fx:id="gestionArticulosScreen" layoutX="79.0" prefHeight="400.0" prefWidth="371.0" visible="false">
          <children>
             <Label layoutX="90.0" layoutY="35.0" text="GESTIÓN ARTÍCULOS">
                <font>
@@ -119,7 +119,7 @@
             <Button layoutX="151.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#AddArticuloDef" text="GUARDAR  ARTÍCULO" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="listarArticulosScreen" layoutX="79.0" layoutY="37.0" prefHeight="363.0" prefWidth="371.0">
+      <AnchorPane fx:id="listarArticulosScreen" layoutX="79.0" layoutY="37.0" prefHeight="363.0" prefWidth="371.0" visible="false">
          <children>
             <Label layoutX="97.0" layoutY="3.0" text="LISTAR ARTÍCULOS">
                <font>
@@ -129,7 +129,7 @@
             <ScrollPane fx:id="listadoArticulos" layoutX="14.0" layoutY="26.0" prefHeight="304.0" prefWidth="345.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="addClienteScreen" layoutX="80.0" layoutY="38.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+      <AnchorPane fx:id="addClienteScreen" layoutX="80.0" layoutY="38.0" prefHeight="363.0" prefWidth="371.0">
          <children>
             <Label layoutX="110.0" layoutY="3.0" text="AÑADIR CLIENTE">
                <font>

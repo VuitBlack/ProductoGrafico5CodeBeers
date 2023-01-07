@@ -1,6 +1,7 @@
 package controlador;
 
 import exceptions.ElementoNoExiste;
+import exceptions.OnlineStoreException;
 import exceptions.OpcionNoValida;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -54,6 +55,10 @@ public class HelloController {
     private AnchorPane listarPedPendEnvScreen;
     @FXML
     private AnchorPane listarPedEnvScreen;
+
+    /*************************************************************
+     * Cosas de Articulo
+     *************************************************************/
     @FXML
     private TextField idArtTextField;
     @FXML
@@ -67,6 +72,27 @@ public class HelloController {
     @FXML
     private ScrollPane listadoArticulos;
 
+    /*************************************************************
+     * Cosas de Cliente
+     *************************************************************/
+    @FXML
+    private TextField NIFclienteTextField;
+    @FXML
+    private TextField NombreCliTextField;
+    @FXML
+    private TextField domicilioCliTextField;
+    @FXML
+    private TextField emailCliTextField;
+    @FXML
+    private TextField tipoCliTextField;
+    @FXML
+    //private ScrollPane
+
+
+
+    /*************************************************************
+     * Cosas de Pedido
+     *************************************************************/
 
     public void onArticuloButtonClick(MouseEvent event) {
         primaryMenuScreen();
@@ -101,18 +127,7 @@ public class HelloController {
         articuloArrow.setVisible(true);
         VBox visualizador = new VBox();
         ArrayList<HashMap<String, String>> datosArticulos = getArticulos();
-        for (HashMap<String, String> elemento : datosArticulos) {
-            Set<String> campos = elemento.keySet();
-            Text texto = new Text("===============================\n");
-            for (String campo : campos) {
-                String valor = elemento.get(campo);
-                String nuevaLinea = new String(campo + ": " + valor + "\n");
-                texto.setText(texto.getText() + nuevaLinea);
-            }
-            texto.setText(texto.getText() + "===============================");
-            visualizador.getChildren().add(texto);
-        }
-        listadoArticulos.setContent(visualizador);
+        mostrarCosas(datosArticulos, listadoArticulos);
     }
     public void onAddCliClick(MouseEvent event) {
         primaryMenuScreen();
@@ -172,12 +187,19 @@ public class HelloController {
         deletePedidoScreen.setVisible(false);
         listarPedPendEnvScreen.setVisible(false);
         listarPedEnvScreen.setVisible(false);
+        resetTexts();
+    }
+    public void resetTexts(){
         idArtTextField.setText("");
         descripcionTextField.setText("");
         pvpArtTextField.setText("");
         gastoEnvioArtTextField.setText("");
         timePrepArticuloTextField.setText("");
-
+        NIFclienteTextField.setText("");
+        NombreCliTextField.setText("");
+        emailCliTextField.setText("");
+        tipoCliTextField.setText("");
+        domicilioCliTextField.setText("");
     }
     public void AddArticuloDef(MouseEvent mouseEvent) {
         if(articuloExiste(idArtTextField.getText()) || idArtTextField.getText().equals("") ||
@@ -200,13 +222,34 @@ public class HelloController {
             primaryMenuScreen();
         }
     }
-
-    public void ListarArtDef(MouseEvent mouseEvent){
-
-    }
-
     public void AddClienteDef(MouseEvent mouseEvent){
+        if(clienteExiste(NIFclienteTextField.getText()) || NIFclienteTextField.getText().equals("") ||
+                NombreCliTextField.getText().equals("") || domicilioCliTextField.getText().equals("") ||
+                emailCliTextField.getText().equals("") || tipoCliTextField.getText().equals("")){
 
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText("Cliente no guardado");
+            alert.setContentText("El cliente no se ha guardado debido a que el NIF ya pertenece a otro cliente o alguno de los campos está incompleto");
+            alert.show();
+        }
+        else{
+            try {
+                addCliente(NombreCliTextField.getText(),
+                        domicilioCliTextField.getText(),
+                        NIFclienteTextField.getText(),
+                        emailCliTextField.getText(),
+                        tipoCliTextField.getText());
+                primaryMenuScreen();
+            }
+            catch(Exception e){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Advertencia");
+                alert.setHeaderText("Cliente no guardado");
+                alert.setContentText("El cliente no se ha guardado debido a que el tipo de cliente no es una opción válida");
+                alert.show();
+            }
+        }
     }
 
 
@@ -297,5 +340,21 @@ public class HelloController {
         return datos.compruebaExistenciaArticulo(id);
     }
 
+    private void mostrarCosas(ArrayList<HashMap<String, String>> datos, ScrollPane panel){
+        VBox visualizador = new VBox();
+
+        for (HashMap<String, String> elemento : datos) {
+            Set<String> campos = elemento.keySet();
+            Text texto = new Text("===============================\n");
+            for (String campo : campos) {
+                String valor = elemento.get(campo);
+                String nuevaLinea = new String(campo + ": " + valor + "\n");
+                texto.setText(texto.getText() + nuevaLinea);
+            }
+            texto.setText(texto.getText() + "===============================");
+            visualizador.getChildren().add(texto);
+        }
+        panel.setContent(visualizador);
+    }
 
 }
