@@ -227,7 +227,7 @@
             <Button layoutX="299.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#mostrarPedPendientes" text="Buscar" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="listarPedEnvScreen" layoutX="109.0" layoutY="52.0" prefHeight="363.0" prefWidth="371.0">
+      <AnchorPane fx:id="listarPedEnvScreen" layoutX="109.0" layoutY="52.0" prefHeight="363.0" prefWidth="371.0" visible="false">
          <children>
             <Label prefHeight="50.0" prefWidth="375.0" style="-fx-alignment: center;" text="LISTAR PEDIDOS ENVIADOS" textAlignment="CENTER" wrapText="true">
                <font>
