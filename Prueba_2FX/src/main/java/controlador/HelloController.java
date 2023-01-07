@@ -3,6 +3,7 @@ package controlador;
 import exceptions.ElementoNoExiste;
 import exceptions.OnlineStoreException;
 import exceptions.OpcionNoValida;
+import exceptions.PedidoYaPreparado;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,7 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import modelo.*;
 
-//import java.awt.*;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -91,17 +92,20 @@ public class HelloController {
     private ScrollPane listadoClientesEst;
     @FXML
     private ScrollPane listadoClientesPremium;
+
+
+    /*************************************************************
+     * Cosas de Pedido
+     *************************************************************/
+
     @FXML
     private TextField NIFcliPedTextField;
     @FXML
     private TextField idArtPedTextField;
     @FXML
     private TextField cantidadArtPedTextField;
-
-
-    /*************************************************************
-     * Cosas de Pedido
-     *************************************************************/
+    @FXML
+    private TextField NIFcliPedTextField1;
 
     public void onArticuloButtonClick(MouseEvent event) {
         primaryMenuScreen();
@@ -214,6 +218,10 @@ public class HelloController {
         emailCliTextField.setText("");
         tipoCliTextField.setText("");
         domicilioCliTextField.setText("");
+        NIFcliPedTextField.setText("");
+        idArtPedTextField.setText("");
+        cantidadArtPedTextField.setText("");
+        NIFcliPedTextField1.setText("");
     }
     public void AddArticuloDef(MouseEvent mouseEvent) {
         if(articuloExiste(idArtTextField.getText()) || idArtTextField.getText().equals("") ||
@@ -271,11 +279,24 @@ public class HelloController {
         }
         else {
             try {
-                addPedido(NIFcliPedTextField.getText(), idArtPedTextField.getText(), Integer.parseInt(cantidadArtPedTextField.getText()), LocalDateTime.now());
+                addPedido(NIFcliPedTextField.getText(),
+                        idArtPedTextField.getText(),
+                        Integer.parseInt(cantidadArtPedTextField.getText()),
+                        LocalDateTime.now());
+                primaryMenuScreen();
             }
-            catch (Exception e) {
+            catch (OnlineStoreException e) {
                 alerta("Advertencia", "El articulo no existe", "Cree el articulo desde el menú principal o corrígalo antes de proceder con el pedido");
             }
+        }
+    }
+
+    public void deletePedidoDef(){
+        try {
+            deletePedido(Integer.parseInt(NIFcliPedTextField1.getText()));
+        }
+        catch (OnlineStoreException e){
+            alerta("Advertencia", "El pedido no se ha eliminado", e.getError());
         }
     }
 
@@ -379,7 +400,7 @@ public class HelloController {
         return datosPedidos;
     }
 
-    public void deletePedido(int num) throws ElementoNoExiste {
+    public void deletePedido(int num) throws ElementoNoExiste, PedidoYaPreparado {
         datos.deletePedido(num);
     }
 

@@ -1,6 +1,7 @@
 package modelo;
 
 import exceptions.ElementoNoExiste;
+import exceptions.PedidoYaPreparado;
 
 import java.util.ArrayList;
 
@@ -40,7 +41,7 @@ public class Datos {
         return pedidos.getPedidos(filtro, enviado);
     }
 
-    public void deletePedido(int num) throws ElementoNoExiste {
+    public void deletePedido(int num) throws ElementoNoExiste, PedidoYaPreparado {
         pedidos.deletePedido(num);
     }
 

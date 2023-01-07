@@ -42,8 +42,12 @@ public class ListaPedidos extends Lista{
 
     }
 
-    public void deletePedido(int num) throws ElementoNoExiste {
-        borrar(getPedidoByNum(num));
+    public void deletePedido(int num) throws ElementoNoExiste, PedidoYaPreparado {
+        Pedido pedido = getPedidoByNum(num);
+        if(!pedido.pedidoEnviado())
+            borrar(pedido);
+        else
+            throw new PedidoYaPreparado();
     }
 
     public boolean compruebaExistencia(int num) {

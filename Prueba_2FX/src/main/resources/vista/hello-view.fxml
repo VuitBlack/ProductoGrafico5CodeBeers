@@ -183,7 +183,7 @@
             <ScrollPane fx:id="listadoClientesPremium" layoutX="29.0" layoutY="59.0" prefHeight="304.0" prefWidth="371.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="addPedidoScreen" layoutX="112.0" layoutY="49.0" prefHeight="363.0" prefWidth="371.0">
+      <AnchorPane fx:id="addPedidoScreen" layoutX="112.0" layoutY="49.0" prefHeight="363.0" prefWidth="371.0" visible="false">
          <children>
             <Label layoutX="118.0" layoutY="3.0" text="AÑADIR PEDIDO">
                <font>
@@ -208,10 +208,10 @@
             </Label>
             <Label layoutX="47.0" layoutY="65.0" prefHeight="17.0" prefWidth="104.0" text="ID Pedido:" />
             <TextField fx:id="NIFcliPedTextField1" layoutX="151.0" layoutY="61.0" prefHeight="25.0" prefWidth="181.0" promptText="ID del pedido a eliminar" />
-            <Button fx:id="saveAddPed1" layoutX="151.0" layoutY="107.0" mnemonicParsing="false" text="ELIMINAR  PEDIDO" />
+            <Button fx:id="deletePedido" layoutX="151.0" layoutY="107.0" mnemonicParsing="false" onMouseClicked="#deletePedidoDef" text="ELIMINAR  PEDIDO" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="listarPedPendEnvScreen" layoutX="109.0" layoutY="48.0" prefHeight="363.0" prefWidth="371.0" visible="false">
+      <AnchorPane fx:id="listarPedPendEnvScreen" layoutX="109.0" layoutY="48.0" prefHeight="363.0" prefWidth="371.0">
          <children>
             <Label layoutX="90.0" prefHeight="50.0" prefWidth="192.0" text="LISTAR PEDIDOS PENDIENTES DE ENVÍO" textAlignment="CENTER" wrapText="true">
                <font>
