@@ -1,4 +1,4 @@
-package com.example.prueba_2fx;
+package vista;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

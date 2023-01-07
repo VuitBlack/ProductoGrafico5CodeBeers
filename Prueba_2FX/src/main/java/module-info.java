@@ -1,8 +1,10 @@
-module com.example.prueba_2fx {
+module com.example.vista {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.example.prueba_2fx to javafx.fxml;
-    exports com.example.prueba_2fx;
+    opens vista to javafx.fxml;
+    exports vista;
+    exports controlador;
+    opens controlador to javafx.fxml;
 }
