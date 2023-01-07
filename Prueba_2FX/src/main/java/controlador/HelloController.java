@@ -113,7 +113,6 @@ public class HelloController {
             visualizador.getChildren().add(texto);
         }
         listadoArticulos.setContent(visualizador);
-        primaryMenuScreen();
     }
     public void onAddCliClick(MouseEvent event) {
         primaryMenuScreen();
