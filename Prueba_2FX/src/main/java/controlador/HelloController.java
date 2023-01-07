@@ -6,7 +6,6 @@ import exceptions.OpcionNoValida;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -16,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import modelo.*;
 
+//import java.awt.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,8 +86,17 @@ public class HelloController {
     @FXML
     private TextField tipoCliTextField;
     @FXML
-    //private ScrollPane
-
+    private ScrollPane listadoClientes;
+    @FXML
+    private ScrollPane listadoClientesEst;
+    @FXML
+    private ScrollPane listadoClientesPremium;
+    @FXML
+    private TextField NIFcliPedTextField;
+    @FXML
+    private TextField idArtPedTextField;
+    @FXML
+    private TextField cantidadArtPedTextField;
 
 
     /*************************************************************
@@ -125,7 +134,6 @@ public class HelloController {
         primaryMenuScreen();
         listarArticulosScreen.setVisible(true);
         articuloArrow.setVisible(true);
-        VBox visualizador = new VBox();
         ArrayList<HashMap<String, String>> datosArticulos = getArticulos();
         mostrarCosas(datosArticulos, listadoArticulos);
     }
@@ -138,16 +146,22 @@ public class HelloController {
         primaryMenuScreen();
         listarCliScreen.setVisible(true);
         clienteArrow.setVisible(true);
+        ArrayList<HashMap<String, String>> datosClientes = getClientes("");
+        mostrarCosas(datosClientes, listadoClientes);
     }
     public void onListEstClick(MouseEvent event) {
         primaryMenuScreen();
         listarCliEstScreen.setVisible(true);
         clienteArrow.setVisible(true);
+        ArrayList<HashMap<String, String>> datosClientes = getClientes("Estándar");
+        mostrarCosas(datosClientes, listadoClientesEst);
     }
     public void onListPremClick(MouseEvent event) {
         primaryMenuScreen();
         listarCliPremScreen.setVisible(true);
         clienteArrow.setVisible(true);
+        ArrayList<HashMap<String, String>> datosClientes = getClientes("Premium");
+        mostrarCosas(datosClientes, listadoClientesPremium);
     }
     public void onAddPedClick(MouseEvent event){
         primaryMenuScreen();
@@ -244,10 +258,23 @@ public class HelloController {
             }
             catch(Exception e){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Advertencia");
-                alert.setHeaderText("Cliente no guardado");
-                alert.setContentText("El cliente no se ha guardado debido a que el tipo de cliente no es una opción válida");
-                alert.show();
+                alerta("Advertencia", "Cliente no guardado", "El liente no se ha guardado debido a que el tipo de cliente no es una opción válida");
+            }
+        }
+    }
+
+    public void addPedidoDef(MouseEvent mouseEvent){
+        if(NIFcliPedTextField.getText().equals("") || idArtPedTextField.getText().equals("") || cantidadArtPedTextField.getText().equals(""))
+            alerta("Advertencia", "Información insuficiente", "Uno o más campos están vacíos, por favor rellene todos antes de proceder");
+        else if(!clienteExiste(NIFcliPedTextField.getText())) {
+            alerta("Advertencia","El cliente no existe", "Modifíque o agréguelo antes de proceder con el pedido");
+        }
+        else {
+            try {
+                addPedido(NIFcliPedTextField.getText(), idArtPedTextField.getText(), Integer.parseInt(cantidadArtPedTextField.getText()), LocalDateTime.now());
+            }
+            catch (Exception e) {
+                alerta("Advertencia", "El articulo no existe", "Cree el articulo desde el menú principal o corrígalo antes de proceder con el pedido");
             }
         }
     }
@@ -267,6 +294,14 @@ public class HelloController {
             visualizador.getChildren().add(texto);
         }
         panel.setContent(visualizador);
+    }
+
+    private void alerta(String title, String header, String content){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.show();
     }
 
 
