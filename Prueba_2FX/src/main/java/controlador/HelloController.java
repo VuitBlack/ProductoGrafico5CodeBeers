@@ -4,15 +4,22 @@ import exceptions.ElementoNoExiste;
 import exceptions.OpcionNoValida;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import modelo.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class HelloController {
     @FXML
@@ -47,6 +54,18 @@ public class HelloController {
     private AnchorPane listarPedPendEnvScreen;
     @FXML
     private AnchorPane listarPedEnvScreen;
+    @FXML
+    private TextField idArtTextField;
+    @FXML
+    private TextField descripcionTextField;
+    @FXML
+    private TextField timePrepArticuloTextField;
+    @FXML
+    private TextField gastoEnvioArtTextField;
+    @FXML
+    private TextField pvpArtTextField;
+    @FXML
+    private ScrollPane listadoArticulos;
 
 
     public void onArticuloButtonClick(MouseEvent event) {
@@ -80,6 +99,21 @@ public class HelloController {
         primaryMenuScreen();
         listarArticulosScreen.setVisible(true);
         articuloArrow.setVisible(true);
+        VBox visualizador = new VBox();
+        ArrayList<HashMap<String, String>> datosArticulos = getArticulos();
+        for (HashMap<String, String> elemento : datosArticulos) {
+            Set<String> campos = elemento.keySet();
+            Text texto = new Text("===============================\n");
+            for (String campo : campos) {
+                String valor = elemento.get(campo);
+                String nuevaLinea = new String(campo + ": " + valor + "\n");
+                texto.setText(texto.getText() + nuevaLinea);
+            }
+            texto.setText(texto.getText() + "===============================");
+            visualizador.getChildren().add(texto);
+        }
+        listadoArticulos.setContent(visualizador);
+        primaryMenuScreen();
     }
     public void onAddCliClick(MouseEvent event) {
         primaryMenuScreen();
@@ -139,8 +173,40 @@ public class HelloController {
         deletePedidoScreen.setVisible(false);
         listarPedPendEnvScreen.setVisible(false);
         listarPedEnvScreen.setVisible(false);
+        idArtTextField.setText("");
+        descripcionTextField.setText("");
+        pvpArtTextField.setText("");
+        gastoEnvioArtTextField.setText("");
+        timePrepArticuloTextField.setText("");
+
     }
-    protected void addClienteDatos(){
+    public void AddArticuloDef(MouseEvent mouseEvent) {
+        if(articuloExiste(idArtTextField.getText()) || idArtTextField.getText().equals("") ||
+                descripcionTextField.getText().equals("") || pvpArtTextField.getText().equals("") ||
+                gastoEnvioArtTextField.getText().equals("") || timePrepArticuloTextField.getText().equals("")){
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Advertencia");
+            alert.setHeaderText("Articulo no guardado");
+            alert.setContentText("El artículo no se ha guardado debido a que el ID ya pertenece a otro artículo o alguno de los campos está incompleto");
+            alert.show();
+        }
+        else{
+            addArticulo(idArtTextField.getText(),
+                    descripcionTextField.getText(),
+                    Float.parseFloat(pvpArtTextField.getText()),
+                    Float.parseFloat(gastoEnvioArtTextField.getText()),
+                    Integer.parseInt(timePrepArticuloTextField.getText())
+            );
+            primaryMenuScreen();
+        }
+    }
+
+    public void ListarArtDef(MouseEvent mouseEvent){
+
+    }
+
+    public void AddClienteDef(MouseEvent mouseEvent){
 
     }
 
@@ -149,7 +215,7 @@ public class HelloController {
     /***********************************************************************
     **  Antiguo Controlador
     ************************************************************************/
-    private Datos datos;
+    private Datos datos = new Datos();
 
 
 
@@ -231,4 +297,6 @@ public class HelloController {
     public boolean articuloExiste(String id) {
         return datos.compruebaExistenciaArticulo(id);
     }
+
+
 }
