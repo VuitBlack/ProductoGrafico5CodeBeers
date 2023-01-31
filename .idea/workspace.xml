@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3a79a937-6f16-40db-9ff4-ccefdb8621f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_jupiter.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/junit_jupiter_api.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/junit_jupiter_engine.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/junit_jupiter_engine.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/junit_platform_commons.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/junit_platform_commons.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/junit_platform_engine.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/junit_platform_engine.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/opentest4j.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductoGrafico5CodeBeers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProductoGrafico5CodeBeers.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/Images/articulos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/Images/client.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/Images/clientes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/Images/left-arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/Images/lista.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/Images/pedidos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/Images/salida.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/articulos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/client.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/clientes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/left-arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/lista.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/pedidos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProductoGrafico5CodeBeers/salida.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2L3nBxL3N2quotExOgFg0BnGDlj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.22077923",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.com.example.prueba_2fx.HelloApplication">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vista.HelloApplication" />
+      <module name="ProductoGrafico5CodeBeers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vista.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.example.prueba_2fx.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.prueba_2fx.HelloApplication" />
+      <module name="ProductoGrafico5CodeBeers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.prueba_2fx.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.com.example.prueba_2fx.HelloApplication" />
+        <item itemvalue="Application.HelloApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a79a937-6f16-40db-9ff4-ccefdb8621f8" name="Changes" comment="" />
+      <created>1675108502446</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675108502446</updated>
+    </task>
+    <servers />
+  </component>
+</project>
